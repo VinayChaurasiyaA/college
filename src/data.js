@@ -31,12 +31,4 @@ export const employeeData = [
     salary: "300099",
     date: "21/12/12",
   },
-  {
-    id: 5,
-    firstname: "krishi",
-    lastname: "chaurasiya",
-    email: "krishiasiya73@gmail.com",
-    salary: "30001",
-    date: "21/12/12",
-  },
 ];
