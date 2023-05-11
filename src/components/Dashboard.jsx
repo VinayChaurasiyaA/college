@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Swal from "sweetalert2";
 
 import Header from "./Header";
@@ -7,6 +7,7 @@ import Edit from "./Edit";
 import List from "./List";
 
 import { employeeData } from "../data";
+import axios from "axios";
 
 const Dashboard = () => {
   const [isAdding, setAdding] = useState(false);
@@ -14,6 +15,11 @@ const Dashboard = () => {
   const [employees, setEmpployees] = useState(employeeData);
   const [isEditing, setIsEditing] = useState(false);
 
+  useEffect(() => {
+    const api_url = "http://127.0.0.1:5000";
+    const url = axios.get(api_url + "/employees");
+    console.log(url);
+  }, []);
   const handleDelete = (id) => {
     //todo
     Swal.fire({
@@ -38,7 +44,7 @@ const Dashboard = () => {
   };
   const handleEdit = (id) => {
     // which wil take id and
-    const [employee] = employees.filter(employee => employee.id === id);
+    const [employee] = employees.filter((employee) => employee.id === id);
 
     setSelectedEmployee(employee);
     setIsEditing(true);
